@@ -1,0 +1,76 @@
+
+  <main role="main" class="background">
+        <div class="container-fluid">
+      <div class="row register-login align-items-center">
+          <div class="col d-flex justify-content-center">
+              <div class="wrapper d-flex flex-column justify-content-center align-items-center">
+                  <h1>Login or Register to continue with Checkout</h1>
+      
+                  <ul class="nav nav-tabs d-flex mt-4" id="myTab" role="tablist">
+                      <li class="nav-item flex-grow-1">
+                          <a class="nav-link d-block active btn tab-signin" id="tab-signin" data-toggle="tab"
+                             href="#signin" role="tab" aria-controls="signin" aria-selected="true">Sign In</a>
+                      </li>
+                      <li class="nav-item flex-grow-1">
+                          <a class="nav-link d-block btn tab-register" id="tab-register" data-toggle="tab"
+                             href="#register" role="tab" aria-controls="register" aria-selected="false">Register</a>
+                      </li>
+                  </ul>
+                  <div class="tab-content w-100" id="myTabContent">
+                      <div class="tab-pane fade show active" id="signin" role="tabpanel" aria-labelledby="tab-sigin">
+                          <form [formGroup]="LoginForm" >
+                             
+                              <div class="form-group mt-4">
+                                  <label for="email">Email address</label>
+                                                                      <input type="email" class="form-control" id="username" formControlName="Email" name="username"
+                                         placeholder="Enter your email address" value="" required="true">
+                              </div>
+                              <div class="form-group mt-4">
+                                  <label for="password">Password</label>
+                                  <input type="password" class="form-control" formControlName="Password" name="password" 
+                                         placeholder="Enter your password" value="" required="true">
+                              </div>
+                             
+                              
+                              <button type="submit"  (click)="login()"   class="btn btn-primary btn-signin">Sign In</button>
+                          </form>
+                      </div>
+                      <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="tab-register">
+                          <form action="https://www.eatmubarak.pk/signup" method="post"   [formGroup]="Registrationform" >
+                              <input type="hidden" name="_token" value="U2V7E9bLAlQ00yr630cZFwqf7OfdmeCsphKgSpg2">
+                              <div class="form-group mt-4 mb-1">
+                                  <label for="fullname"> Name</label>
+                                  <input type="text" formControlName="Consumer_Name"  class="form-control" value="" id="fullname"
+                                         placeholder="Enter your full name" required>
+                              </div>
+                              <div class="form-group mt-4">
+                                  <label for="email">Email</label>
+                                  <input type="email" formControlName="Email" class="form-control" id="email" value=""
+                                         placeholder="Enter your email address" required>
+                              </div>
+                              <label for="mobile-number" class="mt-2">Mobile Number</label>
+                              <div class="input-group">
+                                  <div class="input-group-prepend">
+                                      <span class="input-group-text">+44</span>
+                                  </div>
+                                  <input type="text" formControlName="Mobile_Number" class="form-control" id="mobile-number"
+                                         placeholder="Enter your mobile number" required>
+                              </div>
+                              <div class="form-group mt-4 mb-4">
+                                  <label for="password">Password</label>
+                                                                          <input type="password" class="form-control" formControlName="Password" 
+                                             placeholder="Enter your password" required>
+                                                                  </div>
+                             
+                              <button type="submit" class="btn btn-primary btn-register" (click)="Register()" [disabled]="!Registrationform.valid">Register</button>
+                          </form>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  </main>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>
+
+ 

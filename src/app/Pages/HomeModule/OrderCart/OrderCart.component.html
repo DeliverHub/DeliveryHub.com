@@ -1,0 +1,142 @@
+<body class="view-vendor-menu">
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+   <br>
+  <main role="main">
+     <section class="vendor-menu">
+        <div class="container">
+           <div class="row">
+              <div class="col">
+                 <div class="vendor-info">
+                  <div class="logo-frame">
+                     <img class="logo"
+                          [src]="imagepath+resturants.kitchen.profileImagePath"
+                     />
+                   </div>
+                <br>
+                <br>
+
+                   
+         
+                  
+         
+                 </div>
+              </div>
+           </div>
+        </div>
+     </section>
+     <section class="menu">
+        <div class="container">
+           <div class="row main justify-content-center" id="main-content">
+              <div class="col one">
+               <div class="order-info d-flex justify-content-between">
+                  <div class="eta">
+                     <span class="title">Restaurant Name :  {{resturants?.kitchen.restaurant_Name}}</span>
+                   
+                  </div>
+                
+               </div>
+                 <div class="order-info d-flex justify-content-between">
+                    <div class="eta">
+                       <span class="title">Delivery Time</span>
+                       <span class="desc">45 min</span>
+                    </div>
+                    <div class="min-amount">
+                       <span class="title">Min. Order</span>
+                       <span class="desc">Rs. 100</span>
+                    </div>
+                    <div class="payment-type">
+                       <span class="title">Payment Type</span>
+                       <span class="desc">Cash &amp; Online</span>
+                    </div>
+                 </div>
+              <br><br>
+                 <div class="dishes-navbar-wrapper">
+                    <nav class="navbar dishes-navbar-container mb-3">
+                       <ul class="navbar-nav dishes-navbar-content flex-row">
+                          <li class="nav-item-1" *ngFor="let item of resturants.menucategorey">
+                             <a id="{{item.menucategoreyId}}" class="nav-link">{{item.categoreyName}}</a>
+                          </li>
+                       
+                       </ul>
+                    </nav>
+                    <button id="arrow-left" class="btn-nav">
+                    <i class="fas fa-angle-left"></i>
+                    </button>
+                    <button id="arrow-right" class="btn-nav">
+                    <i class="fas fa-angle-right"></i>
+                    </button>
+                 </div>
+                 <div class="categories mb-5">
+                    <section class="category" *ngFor="let item of resturants.menucategorey">
+                       <h2 class="heading" id="31917">{{item.categoreyName}}</h2>
+                       <div class="content" *ngFor="let item1 of item.dishes">
+                        <div class="item">
+                        <div class="row">
+                        <img style="height:60px ;width: 60px;" [src]="dishimage+item1.dishImage">
+                        
+                        
+                        <p class="name" style="padding-left:10px;">{{item1?.dishName}}</p>
+                        
+                        </div>
+                        
+                        <div class="controls">
+
+                        <p class="price"> &#163;{{item1?.dishPrice}}</p>
+                        <br>
+                        <button class="btn btn-secondary btn-add"
+                        (click)="addtocart(item1.dishId,item.menucategoreyId)">
+                        <img src="assets/images/icons/plus.svg" alt="">
+                        </button>
+                        </div>
+                        </div>
+                        <br>
+                        
+                        </div>
+                     
+                    </section>
+                 
+                 </div>
+              </div>
+              <div class="col two">
+                 <app-Cart></app-Cart>
+              </div>
+           </div>
+        </div>
+        <div class="row btn-view-cart-wrapper no-gutters shadow pt-3 pb-3">
+           <div class="col pl-3 pr-3">
+              <button class="btn btn-secondary btn-view-cart-mob w-100"  data-toggle="modal" data-target="#modal-dish">
+              View Cart
+              </button>
+           </div>
+        </div>
+     </section>
+    
+  </main>
+  <!-- Modal -->
+  <div class="modal fade bs-modal-fix flex show" tabindex="-1" id="modal-dish" role="dialog" >
+   <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+   <!-- Modal content-->
+   <div class="modal-content">
+   
+   <div class="modal-main-data" >
+   <div class="modal-header">
+   <h1 class="modal-title" id="dish-name">Restaurant Name :{{resturants?.kitchen.restaurant_Name}}</h1>
+   
+   <button type="button" class="close p-0" data-dismiss="modal" aria-label="Close">
+   <i style="font-size:30px;font-wait:bold">-</i>
+   </button>
+   </div>
+   <div class="modal-body">
+     <app-Cart></app-Cart>
+   </div>
+   </div>
+   </div>
+   </div>
+   </div>
+ <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>
+
+ 

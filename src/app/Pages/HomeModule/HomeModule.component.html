@@ -1,0 +1,137 @@
+<section class="header-content home" >
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- <div class="col" *ngIf="!router.url.includes('/home/rest')"> -->
+          <div class="location-search-bar">
+            <h1>Discover restaurants and Stores that deliver near you</h1>
+            <p>Best restaurants in the city delivering to your doorstep</p>
+            
+            <form >
+
+    <div class="location-search-bar input-group" >
+        <div class="input-group-prepend">
+            <button class="btn btn-primary" (click)="getl()" type="button" >
+                <div class="d-flex justify-content-center align-items-center">
+                    <span class="fas fa-map-marker-alt animated infinite"></span>
+                </div>
+            </button>
+        </div>
+        <input type="text" #loc name="formatted_address" style="padding-left:30px ;" class="form-control addressFill" mat-button (click)="openDialog(content)" mat-button (keypress)="openDialog(content)"  placeholder="Enter Your Location" autocomplete="off">
+        <div id="suggestion-box" class="headerSuggestion"></div>
+       
+   
+        <div class="input-group-append">
+            <button class="btn btn-primary btn-search" type="submit"[routerLink]="['/home/restaurant']" (click)="Search();" [disabled]="lat==0||rqsttype==''||lng==0">Search</button>
+        </div>
+       
+        
+    </div>
+    <br>
+    <div style="color: white;padding-left: 40%;">
+      <label><input type="radio" name="radio" value="1" (click)="selectrst()"> &nbsp;&nbsp;&nbsp;&nbsp; Restaurant&nbsp;&nbsp;&nbsp;</label>
+      <label><input type="radio" name="radio" value="2" (click)="selectgrc()">&nbsp;&nbsp;&nbsp;Grocery</label>
+    </div>
+  
+     
+  
+     
+ 
+  
+
+</form>
+          </div>
+        </div>
+      </div>
+    <!-- </div> -->
+  </section>
+  
+
+<main role="main">
+
+<section class="how-em-works home mt-5 mb-5">
+<div class="container">
+    <h2 class="text-center">The Food you Love, at your Doorstep</h2>
+    <p class="text-center mb-5">You are just a few steps away from delicious food</p>
+    <div class="row">
+        <div class="col step text-center">
+            <img src="assets/images/icons/step-my-location.svg" alt="">
+            <p class="desc mt-4"><b>Choose the location</b> where you want your food delivered</p>
+        </div>
+        <div class="col step text-center">
+            <img src="assets/images/icons/step-browse.svg" alt="">
+            <p class="desc mt-4"><b>Explore restaurants</b>, <b>browse menus</b> and <b>build your order</b> in seconds</p>
+        </div>
+        <div class="col step text-center">
+            <img src="assets/images/icons/step-payment.svg" alt="">
+            <p class="desc mt-4"><b>Pay conveniently online</b> or pay in <b>cash on delivery</b></p>
+        </div>
+    </div>
+</div>
+</section>
+<section class="mobile-app-links mt-5">
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col col-lg-3">
+            <img src="assets/images/mobile-app.png" class="mobile-app-screenshot" alt="Mobile App Screenshot">
+        </div>
+        <div class="col col-lg-5 app-links">
+            <h2>Download our Mobile App</h2>
+            <p class="mb-4">Get the app. Order with a tap.</p>
+            <div class="mb-2">
+                <a href="https://play.google.com/store/apps/details?id=com.demit.deliverhub" class="btn-app-store" target="_blank" role="button">
+                    <img src="assets/images/btn-app-store.png" alt="Apple App Store Link">
+                </a>
+            </div>
+            <div class="mb-2">
+                <a href="https://play.google.com/store/apps/details?id=com.demit.deliverhub" class="btn-app-store" target="_blank" role="button">
+                    <img src="assets/images/btn-play-store.png" alt="Google Play Store Link">
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+</main>
+
+  
+<ng-template #content >
+    <h2 mat-dialog-title>
+
+      <div class="location-search-bar input-group" >
+       
+        <input ngx-google-places-autocomplete  #placesRef="ngx-places" (onAddressChange)="handleAddressChange($event)" class="form-control addressFill"   placeholder="Enter Your Location" autocomplete="off">
+       
+       
+   
+      
+        
+    </div>
+
+
+
+    </h2>
+    <mat-dialog-content class="mat-typography">
+      <div class="mapouter">
+          <div class="gmap_canvas">
+            <div class="form-row">
+                <div class="col-md-12 mb-3">
+                  <agm-map [zoom]="16" [latitude]="latitude" [longitude]="longitude"  (centerChange)="getcenter($event)">
+           
+                    <agm-marker  [latitude]="lat" [longitude]="lng" [markerDraggable]="false"></agm-marker>
+                  </agm-map>
+                </div>
+              
+              </div>
+         
+            </div>
+        </div>
+  
+    </mat-dialog-content>
+    <mat-dialog-actions align="end">
+      <button mat-button mat-dialog-close>Cancel</button>
+      <button mat-button mat-dialog-close class="btn btn-primary btn-search" (click)="SaveAddress()" >Continue</button>
+ 
+    </mat-dialog-actions>
+    
+  </ng-template>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>

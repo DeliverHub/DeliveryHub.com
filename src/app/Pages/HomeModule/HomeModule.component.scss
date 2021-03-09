@@ -1,0 +1,31 @@
+label > input[type=radio] {
+    vertical-align: middle;
+    margin-top: -2px;
+    padding: 10%;
+    height: 20px;
+    width: 20px;
+    color: red !important;
+}
+
+#d2 {  
+    font-size: 30px;
+}
+.gmap_canvas {overflow:hidden;background:none!important;height:500px;width:600px;}
+.mapouter{position:relative;text-align:right;height:500px;width:600px;}
+agm-map {
+    height: 500px;
+  }
+   .centerMarker {
+    position: absolute;
+   
+    top: 50%;
+    left: 50%;
+    z-index: 1;
+    /*fix offset when needed*/
+    margin-left: -10px;
+    margin-top: -34px;
+    /*size of the image*/
+    height: 34px;
+    width: 20px;
+    cursor: pointer;
+  }

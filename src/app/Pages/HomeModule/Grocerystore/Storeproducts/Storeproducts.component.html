@@ -1,0 +1,170 @@
+
+
+<body class="view-vendor-menu">
+   <section class="header-content home1"  [style.backgroundImage]="'url('+imagepath+stores.store.profileImagePath+')'"  >
+      <div class="container">
+        <div class="row align-items-center">
+          <!-- <div class="col" *ngIf="!router.url.includes('/home/rest')"> -->
+            <div class="location-search-bar">
+             
+              <form >
+    
+      <div class="location-search-bar input-group" >
+          
+       
+         
+     
+          
+         
+          
+      </div>
+      <br>
+      
+    
+       
+    
+       
+    
+    
+    
+    </form>
+            </div>
+          </div>
+        </div>
+      <!-- </div> -->
+    </section>
+<main role="main">
+<section class="vendor-menu" style="margin-top:100px;">
+<div class="container">
+<div class="row">
+<br>
+<br>
+<br>
+<br>
+
+<div class="col">
+<div class="vendor-info">
+<div class="logo-frame" >
+<img class="logo"
+[src]="imagepath+stores.store.profileImagePath"
+/>
+
+</div>
+<br>
+<br>
+
+
+
+
+
+</div>
+</div>
+</div>
+</div>
+</section>
+<section class="menu">
+<div class="container">
+<div class="row main justify-content-center" id="main-content">
+<div class="col one">
+<div class="order-info d-flex justify-content-between">
+<div class="eta">
+<span class="title"> <h1>Store Name :{{stores?.store.groccery_Name}}</h1></span>
+
+</div>
+
+
+</div>
+<div class="order-info d-flex justify-content-between">
+<div class="eta">
+<span class="title">Delivery Time</span>
+<span class="desc">45 min</span>
+</div>
+<div class="min-amount">
+<span class="title">Min. Order</span>
+<span class="desc">Rs. 100</span>
+</div>
+<div class="payment-type">
+<span class="title">Payment Type</span>
+<span class="desc">Cash &amp; Online</span>
+</div>
+</div>
+<div class="dishes-navbar-wrapper">
+<nav class="navbar dishes-navbar-container mb-3">
+<ul class="navbar-nav dishes-navbar-content flex-row">
+<li class="nav-item-1" *ngFor="let item of stores.productCategorey">
+<a id="{{item.categoreyId}}" class="nav-link">{{item.categoreyName}}</a>
+</li>
+
+</ul>
+</nav>
+<button id="arrow-left" class="btn-nav">
+<i class="fas fa-angle-left"></i>
+</button>
+<button id="arrow-right" class="btn-nav">
+<i class="fas fa-angle-right"></i>
+</button>
+</div>
+<div class="categories mb-5">
+<section class="category" *ngFor="let item of stores.productCategorey">
+<h2 class="heading" id="31917">{{item.categoreyName}}</h2>
+<div class="content" *ngFor="let item1 of item.products">
+<div class="item">
+<div class="row">
+<img style="height:60px ;width: 60px;" [src]="productimage+item1.productImage">
+
+
+<p class="name" style="padding-left:10px;">{{item1?.productName}}</p>
+
+</div>
+
+<div class="controls">
+<p class="price"> &#163;{{item1?.dishPrice}}</p>
+
+<button class="btn btn-secondary btn-add"
+(click)="addtocart(item1.productId,item.categoreyId)">
+<img src="assets/images/icons/plus.svg" alt="">
+</button>
+</div>
+</div>
+<br>
+
+</div>
+</section>
+
+</div>
+</div>
+<div class="col two">
+<app-storecart></app-storecart>
+</div>
+</div>
+</div>
+<div class="row btn-view-cart-wrapper no-gutters shadow pt-3 pb-3">
+  <div class="col pl-3 pr-3">
+     <button class="btn btn-secondary btn-view-cart-mob w-100"  data-toggle="modal" data-target="#modal-dish" >
+     View Cart 
+     </button>
+  </div>
+</div>
+</section>
+
+</main>
+<div class="modal fade bs-modal-fix flex show" tabindex="-1" id="modal-dish" role="dialog" >
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+  <!-- Modal content-->
+  <div class="modal-content">
+  
+  <div class="modal-main-data" >
+  <div class="modal-header">
+  <h1 class="modal-title" id="dish-name">Store Name :{{stores?.store.groccery_Name}}</h1>
+  
+  <button type="button" class="close p-0" data-dismiss="modal" aria-label="Close">
+  <i style="font-size:30px;font-wait:bold">-</i>
+  </button>
+  </div>
+  <div class="modal-body">
+    <app-storecart></app-storecart>
+  </div>
+  </div>
+  </div>
+  </div>
+  </div>

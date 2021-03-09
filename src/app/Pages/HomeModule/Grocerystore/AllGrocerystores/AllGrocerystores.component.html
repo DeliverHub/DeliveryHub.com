@@ -1,0 +1,126 @@
+<section class="header-content home1" style="background-image:url('assets/images/header/M63DgY.jpg');height: 500px;" >
+  <div class="container">
+    <div class="row align-items-center">
+      <!-- <div class="col" *ngIf="!router.url.includes('/home/rest')"> -->
+        <div class="location-search-bar">
+         
+          
+          <form >
+
+  <div class="location-search-bar input-group" >
+      <div class="input-group-prepend">
+        
+      </div>
+   
+     
+ 
+      
+     
+      
+  </div>
+  <br>
+  
+
+   
+
+   
+
+
+
+</form>
+        </div>
+      </div>
+    </div>
+  <!-- </div> -->
+</section>
+<main role="main">
+  <div class="web-loader abs"></div>
+  <section class="search vendor-filter">
+      <div class="container">
+          <div class="row mt-5 mb-5">
+              <div class="col">
+                  <form action="javascript:void(0)" id="rest-search" method="get">
+                      <div class="clearfix search-restaurants-field">
+                          <div>
+                              <input type="text" class="form-control" id="search-rest"
+                                     placeholder="Search Restaurants ..." autocomplete="off">
+                              <!-- <span id="searchclear" class="fas fa-times-circle"></span> -->
+                          </div>
+                      </div>
+                  </form>
+                
+              </div>
+          </div>
+      </div>
+  </section>
+  <section >
+     
+   
+          <div class="row">
+          <div class="col-md-1">
+
+          </div>
+          
+          <div class="col-md-10">
+              <div class="row" >
+                 <div class="col-md-4" *ngFor="let item of allgroceries">
+                <a (click)="storedetail(item.store.grocceryID)" >
+                  <a title="Burger Lab-Em" href="" ></a>
+                  <div class="col mb-4 vendor-item-col">
+                    <a title="Pizza Hut"  role="button">
+                        <section class="vendor-item">
+                            <div class="header">
+                                <div class="image-wrapper">
+                                    <span class="placeholder"></span>
+                                    <span class="image" [style.backgroundImage]="'url('+imagepath+item.store.profileImagePath+')'"></span>
+                                </div>
+                            </div>
+                            <div class="body">
+                                <!-- <div class="logo-frame">
+                                    <span class="logo" style="background-image: url('https://em-cdn.eatmubarak.pk/restaurant_new/559/logo/559.png');"></span>
+                                </div> -->
+                                <div class="vendor-info">
+                                    <h3 class="name text-truncate">  {{item.store.groccery_Name}}</h3>
+                                    <p class="tags text-truncate"> {{item.store.groccery_About}}</p>
+                                </div>
+                            </div>
+                        </section>
+                    </a>
+                </div>
+                </a>
+                 </div>
+                
+                 
+              </div> 
+         
+          </div>
+          <div class="col-md-1">
+
+          </div>
+             
+                
+                       
+                        
+                           
+                            
+                        
+               
+          
+      
+          </div>
+  
+  </section>
+<br>
+
+  </main>
+
+ 
+
+  <!-- Loader -->
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>
+
+ 
+
+
+
+  

@@ -1,0 +1,51 @@
+
+  <main role="main">
+    <br>
+    <br>
+    <br>
+    <br>
+      <section class="vendor-branches">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="vendor-info">
+            <div class="logo-frame">
+              <img class="logo"
+                   [src]="imagepath+resturants.kitchen.profileImagePath"
+              />
+            </div>
+          <h1>{{resturants?.kitchen.kitchen_Name}}</h1>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container mt-5 vendor-branches">
+  <div class="row mb-5">
+    <div class="col col-md-12 col-lg-6">
+  
+      <div class="branch-item">
+<span class="rating">5.0</span>
+<h2>{{resturants?.kitchen.kitchen_Name}}</h2>
+<p class="address mb-4">{{resturants?.kitchen.restaurant_About}}</p>
+<div class="d-flex justify-content-between">
+  
+  <a  (click)="Proceed()"   class="btn btn-order">Order Now</a>
+</div>
+</div>
+ </div>
+    <div class="col col-md-12 col-lg-6">
+      <div  class="map">
+        <agm-map [zoom]="16" [latitude]="lat" [longitude]="lng"  >
+           
+          <agm-marker  [latitude]="lat" [longitude]="lng" [markerDraggable]="false"></agm-marker>
+        </agm-map>
+      </div>
+    </div>
+  </div>
+</div>
+  </main>
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>
+
+ 

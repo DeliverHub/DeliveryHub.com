@@ -1,0 +1,88 @@
+<main role="main">
+  <div class="web-loader abs"></div>
+  <section class="search vendor-filter">
+      <div class="container">
+          <div class="row mt-5 mb-5">
+              <div class="col">
+               
+                      <div class="clearfix search-restaurants-field">
+                          <div>
+                              <input type="text" class="form-control" [(ngModel)]="restaurantname" (ngModelChange)="SearchRestaurant()"
+                                     placeholder="Search Restaurants ..." autocomplete="off">
+                              <!-- <span id="searchclear" class="fas fa-times-circle"></span> -->
+                          </div>
+                      </div>
+                
+                
+              </div>
+          </div>
+      </div>
+  </section>
+  <section >
+   
+          <div class="row">
+          <div class="col-md-1">
+
+          </div>
+          
+          <div class="col-md-10">
+              <div class="row" >
+                 <div class="col-md-4" *ngFor="let item of resturants">
+                <a (click)="Restaurantdetail(item.kitchen.restaurantID)" >
+                  
+                  <div class="col mb-4 vendor-item-col">
+                    <a title="Pizza Hut"  role="button">
+                        <section class="vendor-item">
+                            <div class="header">
+                                <div class="image-wrapper">
+                                    <span class="placeholder"></span>
+                                    <img class="image" [src]="imagepath+item.kitchen.profileImagePath"/>
+                                </div>
+                            </div>
+                            <div class="body">
+                               
+                                <div class="vendor-info">
+                                    <h3 class="name text-truncate">  {{item.kitchen.kitchen_Name}}</h3>
+                                    <p class="tags text-truncate"> {{item.kitchen.restaurant_About}}</p>
+                                </div>
+                            </div>
+                        </section>
+                    </a>
+                </div>
+                </a>
+                 </div>
+                
+                 
+              </div>
+         
+          </div>
+          <div class="col-md-1">
+
+          </div>
+             
+                
+                       
+                        
+                           
+                            
+                        
+               
+          
+      
+          </div>
+  
+  </section>
+<br>
+
+  </main>
+
+ 
+
+  <!-- Loader -->
+
+
+
+
+  <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>
+
+ 

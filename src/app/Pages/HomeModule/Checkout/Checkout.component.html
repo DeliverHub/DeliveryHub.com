@@ -1,0 +1,198 @@
+
+
+
+<div class="row" style="padding-top:50px"  >
+  
+  <div class="col-md-8"  *ngIf="cart.OrderItems!=null;else noitem" >
+    <div class="row">
+      <div class="col-md-2">
+      
+      </div>
+      <div class="col-md-10">
+     
+        <div class="category" id="food">
+               
+               
+               
+          <div class="category-title"></div>
+          
+              <div class="vendor-order" style="border:1px dashed green">
+                <div class="row" style="padding: 20px;">
+                  <div class="col-md-2 ">
+                    <div class="vendor-logo"  style="float: right;">
+                      <img height="70px" width="60px" [src]="imagepath+rstimg" alt="Logo">
+                  </div>
+                  </div>
+                  <div class="col-md-10">
+                  
+                    <div class="vendor-order-content">
+                 
+                      <div class="vendor-name">
+                        <h4>{{restaurantname}}</h4>
+                          <a class="clear-order clear-partner" style="float: right;color:red"(click)="clearcart()" >Clear</a>
+                      </div>
+                    
+                      <div class="estimate-time">Estimated Delivery Time:
+                          
+                              55 Minutes
+                          
+                      </div>
+                   
+                      <hr class="new1">
+                      <br>
+                      <div class="order-list" *ngFor="let item of cart?.OrderItems">
+                          
+                              <div class="order-list-item">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                  <p> <span  style="padding-right:10%;"> {{item?.Quantity}}</span> {{item?.dishName}}      </p>      
+                              
+                         </div>
+                         <div class="col-md-6">
+                                  <div class="order-price" style="float: right;">&#163;	{{item?.TotalPrice  | number : '1.2-2' }}</div>
+                                </div>
+                                  </div>
+                                </div>
+                             
+                              
+                                
+                          
+                      </div>
+                      <hr class="new1">
+                      <div class="order-total">
+                       <div class="row">
+                            <div class="col-md-6">
+                                 <p>Sub Total</p>
+                            </div>
+                            <div class="col-md-6">
+                                <p style="float:right"> &#163; {{cart.OrderBilling?.Subtotal | number : '1.2-2' }}</p>
+                            </div>
+                       </div>
+                       <div class="row">
+                        <div class="col-md-6">
+                             <p>Delivery_Charges</p>
+                        </div>
+                        <div class="col-md-6">
+                            <p style="float:right"> &#163; {{cart.OrderBilling?.Delivery_Charges | number : '1.2-2' }}</p>
+                        </div>
+                   </div>
+                   <div class="row">
+                    <div class="col-md-6">
+                         <p>Grand Total</p>
+                    </div>
+                    <div class="col-md-6">
+                        <p style="float:right"> &#163; {{cart.OrderBilling?.GrandTotal | number : '1.2-2' }}</p>
+                    </div>
+               </div>
+           
+                      </div>
+                      <hr class="new1">
+                  </div>
+                  </div>
+        
+                </div>
+                
+             
+              </div>
+
+          
+       
+
+
+      </div>
+      <br>
+<br><br>
+<br>
+      </div>
+     </div>  
+ 
+ </div>
+ <ng-template #noitem>
+  <div class="col-md-8"  >
+    <div class="row">
+      <div class="col-md-2">
+      
+      </div>
+      <div class="col-md-10">
+     
+        <div class="category" id="food">
+               
+               
+               
+          <div class="category-title"></div>
+          
+             <p>No Product Selected</p>
+  
+          
+       
+  
+  
+      </div>
+      <br>
+  <br><br>
+  <br>
+      </div>
+     </div>  
+  
+  </div>
+   </ng-template>
+
+ 
+<div class="col-md-4" >
+  <div class="row">
+   <div class="col-md-2">
+
+   </div>
+   <div class="col-md-8" >
+     <div class="row"  style="border: solid 1px grey;padding: 20px;">
+        <div class="col-md-6">
+          <div>BASKET TOTAL:</div>
+        </div>
+        <div class="col-md-6">
+          <div class="total" style="float: right;"> &#163;{{cart.OrderBilling?.GrandTotal| number : '1.2-2'}}</div>
+        </div>
+     </div>
+   
+     <div class="row"  style="border: solid 1px grey;background-color: black;color: white;padding: 10px;">
+      <div class="col-md-6">
+        <div>Sub Total:</div>
+      </div>
+      <div class="col-md-6">
+        <div class="total" style="float: right;"> &#163;	{{cart.OrderBilling?.Subtotal| number : '1.2-2'}}</div>
+      </div>
+   </div>
+   <div class="row"  style="border: solid 1px grey;background-color: grey;color: white;padding: 10px;">
+    <div class="col-md-12">
+      <div>Delivery to:</div>
+      <textarea class="form-control food-search-area"  style="height:210px" >{{this.address}}</textarea>
+   
+    </div>
+    <div class="col-md-6">
+  </div>
+ </div>
+ <br>
+ <div class="row"  style="border: solid 1px grey;background-color: grey;color: white;padding: -1px;">
+  <div class="col-md-8">
+    <button  style="float: RIGHT;" (click)="ConfirmOrder()" [disabled]="cart.OrderItems==null">Proceed </button>
+  </div>
+ 
+</div>
+ 
+  </div>
+  <div class="col-md-2">
+
+  </div>
+  </div>
+ 
+  <br>
+  <br>
+
+
+</div>
+
+
+
+</div>
+<ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "large" color = "#f40a0a" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Deliver Hub </p></ngx-spinner>
+
+ 

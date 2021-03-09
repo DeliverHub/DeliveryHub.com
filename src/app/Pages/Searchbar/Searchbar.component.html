@@ -1,0 +1,48 @@
+<section class="header-content home">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col">
+        <div class="location-search-bar">
+          <h1>Discover restaurants that deliver near you</h1>
+          <p>Best restaurants in the city delivering to your doorstep</p>
+          
+          <form action="https://www.eatmubarak.pk/save-location" id="locationForm" onkeypress="return event.keyCode != 13;" method="GET">
+  <input type="hidden" name="_token" value="lUACAddKR5fo5v4HapVSCmow1U7SuR6F42AYSejL">
+  <div class="location-search-bar input-group">
+      <div class="input-group-prepend">
+          <button class="btn btn-primary" onclick="getLocation()" type="button" id="btn-auto-detect-location">
+              <div class="d-flex justify-content-center align-items-center">
+                  <span class="fas fa-map-marker-alt animated infinite"></span>
+              </div>
+          </button>
+      </div>
+      <input type="text" value="" name="formatted_address" class="form-control addressFill" placeholder="Enter Your Location" autocomplete="off">
+      <div id="suggestion-box" class="headerSuggestion"></div>
+     
+      <input class="city" type="hidden" id="city" value="" name="city"/>
+      <input class="lat" type="hidden" name="lat" value="" id="lat">
+      <input class="lng" type="hidden" name="lng" value="" id="lng">
+      <div class="input-group-append">
+          <button class="btn btn-primary btn-search" type="submit" id="btn-search-restaurants">Search</button>
+      </div>
+     
+      
+  </div>
+  <br>
+  <div style="color: white;padding-left: 40%;">
+    <label><input type="radio" name="radio" value="1"> &nbsp;&nbsp;&nbsp;&nbsp; Restaurant&nbsp;&nbsp;&nbsp;</label>
+    <label><input type="radio" name="radio" value="2">&nbsp;&nbsp;&nbsp;Grocery</label>
+  </div>
+
+   
+
+   
+
+
+
+</form>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
